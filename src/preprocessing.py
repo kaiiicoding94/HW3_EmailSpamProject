@@ -3,6 +3,17 @@ import string
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
+import nltk
+
+# Auto-download NLTK resources if not present
+try:
+    nltk.data.find('tokenizers/punkt') # Check for 'punkt' as it's commonly used
+except LookupError:
+    nltk.download('punkt')
+try:
+    nltk.data.find('corpora/stopwords') # Check for 'stopwords'
+except LookupError:
+    nltk.download('stopwords')
 
 def clean_text(text):
     """
